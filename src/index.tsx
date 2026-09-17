@@ -34,3 +34,9 @@ const RenderJupiter = () => {
 };
 
 export { RenderJupiter };
+// ۱. نام برند
+const BRAND_NAME = "SolPulse";
+
+// ۲. آدرس ولت شما برای دریافت کارمزد ۰.۱ درصد
+const DEV_FEE_ACCOUNT = "BA41shbM2qjy5G9LZQhHkhfu4GDfipMWGzgYz2cb3v3f";
+const FEE_BPS = 10; // ۱۰ یعنی ۰.۱ درصد
