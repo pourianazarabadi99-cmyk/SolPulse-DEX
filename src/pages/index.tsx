@@ -1,14 +1,12 @@
-'use client';
-
 import React, { useState, useEffect } from 'react';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { VersionedTransaction } from '@solana/web3.js';
 import axios from 'axios';
 
-// لوگوی اختصاصی SolPulse (SVG)
+// لوگوی اختصاصی برند SolPulse
 const SolPulseLogo = () => (
-  <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="40" height="40" rx="12" fill="url(#solpulse-grad)" />
     <path 
       d="M10 20H15L18 11L22 29L25 18L28 20H30" 
@@ -59,7 +57,6 @@ const TOKENS = {
   },
 };
 
-// آدرس کیف پول شما برای دریافت کارمزد 0.1%
 const DEV_FEE_ACCOUNT = 'BA41shbM2qjy5G9LZQhHkhfu4GDfipMWGzgYz2cb3v3f';
 
 export default function SolPulseSwap() {
@@ -89,7 +86,7 @@ export default function SolPulseSwap() {
           outputMint: TOKENS.USDC.mint,
           amount: lamports,
           slippageBps: 50,
-          platformFeeBps: 10, // 0.1% Developer Fee
+          platformFeeBps: 10,
         },
       });
 
@@ -150,7 +147,6 @@ export default function SolPulseSwap() {
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#0A0E17] text-white p-4 font-sans">
       <div className="w-full max-w-md bg-[#131B2E] border border-cyan-500/20 shadow-[0_0_50px_rgba(6,182,212,0.15)] rounded-3xl p-6 backdrop-blur-xl">
         
-        {/* هدر اختصاصی SolPulse */}
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-3">
             <SolPulseLogo />
@@ -161,7 +157,6 @@ export default function SolPulseSwap() {
           <WalletMultiButton className="!bg-cyan-500/10 !border !border-cyan-500/30 !rounded-xl !h-9 !text-xs" />
         </div>
 
-        {/* ورودی SOL */}
         <div className="bg-[#1C2640] p-4 rounded-2xl mb-2 border border-slate-700/50">
           <div className="flex justify-between text-xs text-gray-400 mb-1">
             <span>پرداخت می‌کنید</span>
@@ -181,14 +176,12 @@ export default function SolPulseSwap() {
           </div>
         </div>
 
-        {/* فلش جابجایی */}
         <div className="flex justify-center -my-3 relative z-10">
           <div className="bg-[#131B2E] border border-cyan-500/30 p-2 rounded-xl text-cyan-400">
             ↓
           </div>
         </div>
 
-        {/* ورودی USDC */}
         <div className="bg-[#1C2640] p-4 rounded-2xl mt-2 mb-4 border border-slate-700/50">
           <div className="flex justify-between text-xs text-gray-400 mb-1">
             <span>دریافت می‌کنید</span>
@@ -208,7 +201,6 @@ export default function SolPulseSwap() {
           </div>
         </div>
 
-        {/* اطلاعات کارمزد */}
         <div className="space-y-1 text-xs text-gray-400 px-1 mb-6">
           <div className="flex justify-between">
             <span>کارمزد توسعه‌دهنده</span>
@@ -216,7 +208,6 @@ export default function SolPulseSwap() {
           </div>
         </div>
 
-        {/* دکمه سواپ */}
         <button
           onClick={handleSwap}
           disabled={swapping || loading || !publicKey}
